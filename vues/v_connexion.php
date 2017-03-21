@@ -1,7 +1,5 @@
 ﻿<div id="contenu">
       <h2>Identification utilisateur</h2>
-
-	<?php //test git ?>
 	  
 <form method="POST" action="index.php?uc=connexion&action=valideConnexion">
    
