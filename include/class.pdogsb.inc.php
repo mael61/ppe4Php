@@ -200,7 +200,7 @@ class PdoGsb{
 	public function creeNouvellesLignesFrais($idVisiteur,$mois){
 		$dernierMois = $this->dernierMoisSaisi($idVisiteur);
 		$laDerniereFiche = $this->getLesInfosFicheFrais($idVisiteur,$dernierMois);
-		if($laDerniereFiche['idEtat']=='CR'){
+		if($laDerniereFiche['idEtat']==3){
 				$this->majEtatFicheFrais($idVisiteur, $dernierMois,2);
 				
 		}
