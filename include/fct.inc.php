@@ -49,7 +49,8 @@ function dateFrancaisVersAnglais($maDate){
 */
 function dateAnglaisVersFrancais($maDate){
    @list($annee,$mois,$jour)=explode('-',$maDate);
-   $date="$jour"."/".$mois."/".$annee;
+   @list($jourSeul)=explode(' ',$jour);
+   $date="$jourSeul"."/".$mois."/".$annee;
    return $date;
 }
 /**
