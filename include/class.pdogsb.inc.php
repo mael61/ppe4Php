@@ -18,8 +18,8 @@
 class PdoGsb{   		
       	private static $serveur='mysql:host=localhost';
       	private static $bdd='dbname=piroma_php';   		
-      	private static $user='root' ;    		
-      	private static $mdp='' ;	
+      	private static $user='mael61' ;    		
+      	private static $mdp='github' ;	
 		private static $monPdo;
 		private static $monPdoGsb=null;
 /**
@@ -200,12 +200,12 @@ class PdoGsb{
 	public function creeNouvellesLignesFrais($idVisiteur,$mois){
 		$dernierMois = $this->dernierMoisSaisi($idVisiteur);
 		$laDerniereFiche = $this->getLesInfosFicheFrais($idVisiteur,$dernierMois);
-		if($laDerniereFiche['idEtat']==3){
-				$this->majEtatFicheFrais($idVisiteur, $dernierMois,2);
+		if($laDerniereFiche['idEtat']=='CR'){
+				$this->majEtatFicheFrais($idVisiteur, $dernierMois,'CL');
 				
 		}
-		$req = "insert into fichefrais(idvisiteur,mois,nbrJustificatif,montantValide,dateModif,idEtat) 
-		values('$idVisiteur','$mois',0,0,now(),3)";
+		$req = "insert into fichefrais(idvisiteur,mois,nbJustificatifs,montantValide,dateModif,idEtat) 
+		values('$idVisiteur','$mois',0,0,now(),'CR')";
 		PdoGsb::$monPdo->exec($req);
 		$lesIdFrais = $this->getLesIdFrais();
 		foreach($lesIdFrais as $uneLigneIdFrais){
@@ -276,6 +276,8 @@ class PdoGsb{
 		$req = "select ficheFrais.idEtat as idEtat, ficheFrais.dateModif as dateModif, fichefrais.nbrJustificatif as nbJustificatif, ficheFrais.montantValide as montantValide, etat.libelle as libEtat from fichefrais inner join Etat on ficheFrais.idEtat = Etat.idEtat where fichefrais.idvisiteur ='$idVisiteur' and fichefrais.mois = '$mois'";
 			
 			/*select ficheFrais.idEtat as idEtat, ficheFrais.dateModif as dateModif, fichefrais.nbrJustificatif as nbJustificatif, ficheFrais.montantValide as montantValide, etat.libelle as libEtat from fichefrais inner join Etat on ficheFrais.idEtat = Etat.idEtat where fichefrais.idvisiteur ='1' and fichefrais.mois = '3' */
+			
+			
 		$res = PdoGsb::$monPdo->query($req);
 		$laLigne = $res->fetch();
 		return $laLigne;
@@ -293,5 +295,73 @@ class PdoGsb{
 		where fichefrais.idvisiteur ='$idVisiteur' and fichefrais.mois = '$mois'";
 		PdoGsb::$monPdo->exec($req);
 	}
-}
+	
+/**
+ * Mael Maillard
+ 
+ * retourne la liste des villes avec des hotels
+ * 
+ * 
+ */	
+	
+	public function listeAvecVille(){
+		$req ="SELECT libelle,ville FROM `hotel` GROUP BY `ville` ASC ";
+		$res = PdoGsb::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes;
+	}
+	
+	
+/**
+ * Mael Maillard
+ 
+ * retourne la liste des hotel pour une ville séléctionner
+ * @param $ville selectionner auparavant  
+ * 
+ */	
+	
+	public function listeHotelpourVille($ville){
+		$req ="SELECT * FROM `hotel` where ville ='$ville'";
+		$res = PdoGsb::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes;
+	}
+
+
+
+/**
+ * Mael Maillard
+ 
+ * retourne la liste des evenement pour une ville séléctionner
+ * @param $ville selectionner auparavant  
+ * 
+ */	
+	public function listeEvenementpourVille($ville){
+		$req ="SELECT nom,dateEv,duree FROM `evenement` where ville ='$ville'";
+		$res = PdoGsb::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes;
+	}
+	
+	
+	
+/**
+ * Mael Maillard
+ 
+ * retourne la date de l'evenement pour un evenement séléctionner
+ * @param $evenement selectionner auparavant  
+ * 
+ */	
+	public function dateEvenement($evenement){
+		$req ="SELECT nom,dateEv,duree FROM `evenement` where nom ='$evenement'";
+		$res = PdoGsb::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes;
+	}
+	
+	
+	
+	
+	
+	}
 ?>
