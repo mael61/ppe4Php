@@ -1,6 +1,5 @@
 <?php
 include("vues/v_sommaire.php");
-
 $idVisiteur = $_SESSION['idVisiteur'];
 
 $mois = $_SESSION['mois'];
@@ -44,7 +43,6 @@ switch($action){
 	
 	case 'validerCreationFrais':{
 		$dateFrais = $_REQUEST['dateFrais'];
-		
 		$libelle = $_REQUEST['libelle'];
 		$montant = $_REQUEST['montant'];
 		valideInfosFrais($dateFrais,$libelle,$montant);
@@ -91,4 +89,3 @@ include("vues/v_listeFraisForfait.php");
 include("vues/v_ajoutfraisForfait.php");
 include("vues/v_listeFraisHorsForfait.php");
 ?>
-
