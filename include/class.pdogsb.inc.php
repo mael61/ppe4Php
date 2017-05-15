@@ -18,8 +18,8 @@
 class PdoGsb{   		
       	private static $serveur='mysql:host=localhost';
       	private static $bdd='dbname=piroma_php';   		
-      	private static $user='mael61' ;    		
-      	private static $mdp='github' ;	
+      	private static $user='root' ;    		
+      	private static $mdp='' ;
 		private static $monPdo;
 		private static $monPdoGsb=null;
 /**
@@ -113,6 +113,17 @@ class PdoGsb{
 		return $lesLignes; 
 	}
 /**
+ * Retourne sous forme d'un tableau associatif tous les types de frais au forfait
+ 
+ * @return l'id, le libelle et le montant sous la forme d'un tableau associatif 
+*/
+	public function getListeFraisForfait(){
+		$req = "select DISTINCT fraisforfait.idFraisForfait as idfrais, fraisforfait.libelle as libelle, fraisforfait.montant as montant from fraisforfait";
+		$res = PdoGsb::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes; 
+	}
+/**
  * Retourne tous les id de la table FraisForfait
  
  * @return un tableau associatif 
@@ -192,16 +203,15 @@ class PdoGsb{
 	
 /**
  * Crée une nouvelle fiche de frais et les lignes de frais au forfait pour un visiteur et un mois donnés
- 
  * récupère le dernier mois en cours de traitement, met à 'CL' son champs idEtat, crée une nouvelle fiche de frais
  * avec un idEtat à 'CR' et crée les lignes de frais forfait de quantités nulles 
+ 
  * @param $idVisiteur 
  * @param $mois sous la forme aaaamm
 */
 	public function creeNouvellesLignesFrais($idVisiteur,$mois){
 		$dernierMois = $this->dernierMoisSaisi($idVisiteur);
 		$laDerniereFiche = $this->getLesInfosFicheFrais($idVisiteur,$dernierMois);
-		echo $laDerniereFiche['idEtat'];
 		if($laDerniereFiche['idEtat']=='CR'){
 				$this->majEtatFicheFrais($idVisiteur, $dernierMois,'CL');
 		}
@@ -231,6 +241,21 @@ class PdoGsb{
 		$dateFr = dateFrancaisVersAnglais($date);
 		$req = "insert into lignefraishorsforfait (libelle, laDate, montant, valid, idFicheFrais, idVisiteur)
 		values('$libelle','$dateFr','$montant',0,'$mois','$idVisiteur')";
+		$temp = PdoGsb::$monPdo->exec($req);
+		
+	}
+/**
+ * 
+ 
+ * @param $idVisiteur 
+ * @param $mois sous la forme aaaamm
+ * @param $libelle : le libelle du frais
+ * @param $date : la date du frais au format français jj//mm/aaaa
+ * @param $montant : le montant
+*/
+	public function creeNouveauFraisForfait($quantite,$mois,$fraisForfait,$idVisiteur){
+		$req = "insert into lignefraisforfait (quantite, idFicheFrais, idFraisForfait, idVisiteur)
+		values('$quantite','$mois','$fraisForfait','$idVisiteur')";
 		$temp = PdoGsb::$monPdo->exec($req);
 		
 	}

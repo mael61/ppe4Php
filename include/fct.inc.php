@@ -24,6 +24,7 @@ function connecter($id,$nom,$prenom){
 	$_SESSION['idVisiteur']= $id; 
 	$_SESSION['nom']= $nom;
 	$_SESSION['prenom']= $prenom;
+	$_SESSION['mois'] = getMois(date("d/m/Y"));
 }
 /**
  * Détruit la session active
@@ -49,7 +50,8 @@ function dateFrancaisVersAnglais($maDate){
 */
 function dateAnglaisVersFrancais($maDate){
    @list($annee,$mois,$jour)=explode('-',$maDate);
-   $date="$jour"."/".$mois."/".$annee;
+   @list($jourSeul)=explode(' ',$jour);
+   $date="$jourSeul"."/".$mois."/".$annee;
    return $date;
 }
 /**
