@@ -1,5 +1,6 @@
 <?php
 include("vues/v_sommaire.php");
+
 $idVisiteur = $_SESSION['idVisiteur'];
 $mois = getMois(date("d/m/Y"));
 $numAnnee =substr( $mois,0,4);
@@ -25,6 +26,7 @@ switch($action){
 	}
 	case 'validerCreationFrais':{
 		$dateFrais = $_REQUEST['dateFrais'];
+		
 		$libelle = $_REQUEST['libelle'];
 		$montant = $_REQUEST['montant'];
 		valideInfosFrais($dateFrais,$libelle,$montant);
@@ -44,7 +46,6 @@ switch($action){
 }
 $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idVisiteur,$mois);
 $lesFraisForfait= $pdo->getLesFraisForfait($idVisiteur,$mois);
-include("vues/v_listeFraisForfait.php");
-include("vues/v_listeFraisHorsForfait.php");
+
 
 ?>

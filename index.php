@@ -20,9 +20,13 @@ switch($uc){
 		include("controleurs/c_etatFrais.php");break; 
 	}
 	case 'gererReservation' :{
-		include("controleurs/c_gererReservation.php");
-		// include("vues/v_date.php");
-		break; 
+		include("controleurs/c_gererReservation.php");break; 
+	}
+	case 'creationHotel' :{
+		include("controleurs/c_creationHotel.php");break; 
+	}
+	case 'visuReservation' :{
+		include("controleurs/c_visuReservation.php");break; 
 	}
 	
 }
