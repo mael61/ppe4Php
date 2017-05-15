@@ -18,9 +18,18 @@
            <li class="smenu">
               <a href="index.php?uc=etatFrais&action=selectionnerMois" title="Consultation de mes fiches de frais">Mes fiches de frais</a>
            </li>
-		   <li class="smenu">
-              <a href="index.php?uc=gererReservation&action=saisieVille" title="Saisie Reservation Hotel">Saisie Reservation Hotel<a>
+		    <li class="smenu">
+              <a href="index.php?uc=creationHotel&action=saisieVille" title="Creation d'un Hotel">Creation d'un Hotel</a>
            </li>
+		   
+		   <li class="smenu">
+              <a href="index.php?uc=gererReservation&action=saisieVille" title="Saisie Reservation Hotel">Saisie Reservation Hotel</a>
+           </li>
+		   
+		   <li class="smenu">
+              <a href="index.php?uc=visuReservation&action=visuReservation" title="Visualiser les reservation">Visualiser les reservation </a>
+           </li>
+		   
 		   
  	   <li class="smenu">
               <a href="index.php?uc=connexion&action=deconnexion" title="Se déconnecter">Déconnexion</a>

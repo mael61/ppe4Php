@@ -201,4 +201,30 @@ function nbErreurs(){
 	   return count($_REQUEST['erreurs']);
 	}
 }
+
+
+
+function valideInfoReservation($hotel,$evenement,$duree){
+	if($hotel==""){
+		ajouterErreur("aucun hotel a ete choisi");
+	}
+	if($evenement == ""){
+		ajouterErreur("aucun evenement a ete choisi");
+	}
+	if($duree == ""){
+		ajouterErreur("aucune durée a ete ajouter ");
+	}
+}
+
+function valideInsertionHotel($libelle,$ville){
+	if($libelle==""){
+			ajouterErreur("aucun nom a ete rentrée");
+	}
+	if($ville==""){
+			ajouterErreur("aucun ville a ete choisis");
+	}
+	
+}
+
+
 ?>
