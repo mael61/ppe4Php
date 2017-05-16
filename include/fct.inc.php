@@ -175,6 +175,31 @@ function valideInfosFrais($dateFrais,$libelle,$montant){
 			ajouterErreur("Le champ montant doit être numérique");
 		}
 }
+
+function valideInfoEven($nom, $dateD, $dateF, $ville){
+	if($nom==""){
+		ajouterErreur("Le champ nom ne doit pas être vide");
+	}
+	if($dateD==""){
+		ajouterErreur("Le champ date ne doit pas être vide");
+	}
+	else{
+		if(!estDatevalide($dateD)){
+			ajouterErreur("Date invalide");
+		}
+	}
+	if($dateF==""){
+		ajouterErreur("Le champ date ne doit pas être vide");
+	}
+	else{
+		if(!estDatevalide($dateF)){
+			ajouterErreur("Date invalide");
+		}
+	}
+	if($ville==""){
+		ajouterErreur("Le champ ville ne doit pas être vide");
+	}
+}
 /**
  * Ajoute le libellé d'une erreur au tableau des erreurs 
  

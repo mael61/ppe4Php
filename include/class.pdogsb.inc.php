@@ -18,8 +18,8 @@
 class PdoGsb{   		
       	private static $serveur='mysql:host=localhost';
       	private static $bdd='dbname=piroma_php';   		
-      	private static $user='mael61' ;    		
-      	private static $mdp='github' ;	
+      	private static $user='root' ;    		
+      	private static $mdp='' ;	
 		private static $monPdo;
 		private static $monPdoGsb=null;
 /**
@@ -291,6 +291,15 @@ class PdoGsb{
 	public function majEtatFicheFrais($idVisiteur,$mois,$etat){
 		$req = "update ficheFrais set idEtat = '$etat', dateModif = now() 
 		where fichefrais.idvisiteur ='$idVisiteur' and fichefrais.mois = '$mois'";
+		PdoGsb::$monPdo->exec($req);
+	}
+	
+	public function creerEvent($nom, $dateD, $duree, $ville, $idVis){
+		$req ="insert into evenement(nom, dateEv, duree, ville, idVisiteur) values ('$nom','$dateD','$duree','$ville','$idVis')";
+		PdoGsb::$monPdo->exec($req);
+	}
+	public function creerConf($libelle, $resume, $date, $idEvent){
+		$req ="insert into evenement(nom, dateEv, duree, ville, idVisiteur) values ('$libelle','$resume','$date','$idEvent')";
 		PdoGsb::$monPdo->exec($req);
 	}
 }
