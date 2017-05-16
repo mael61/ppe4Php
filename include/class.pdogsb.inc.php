@@ -18,12 +18,8 @@
 class PdoGsb{   		
       	private static $serveur='mysql:host=localhost';
       	private static $bdd='dbname=piroma_php';   		
-      	private static $user='root' ;    		
-<<<<<<< HEAD
-      	private static $mdp='' ;	
-=======
+      	private static $user='root' ;  
       	private static $mdp='' ;
->>>>>>> f22b5423a688387737978f1fca90844abb96423e
 		private static $monPdo;
 		private static $monPdoGsb=null;
 /**
@@ -336,7 +332,7 @@ class PdoGsb{
 		$req ="insert into evenement(nom, dateEv, duree, ville, idVisiteur) values ('$libelle','$resume','$date','$idEvent')";
 		PdoGsb::$monPdo->exec($req);
 	}
-}
+
 
 /**
  * Mael Maillard

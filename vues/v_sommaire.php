@@ -14,7 +14,7 @@
 			</li>
 
 			<li class="smenu">
-				<a href="index.php?uc=gererFrais&action=saisirFrais" title="Saisie fiche de frais">Saisie fiche de frais</a>
+				<a href="index.php?uc=gererFrais&action=moisCourant" title="Saisie fiche de frais ">Saisie fiche de frais</a>
 			</li>
 			<li class="smenu">
 				<a href="index.php?uc=etatFrais&action=selectionnerMois" title="Consultation de mes fiches de frais">Mes fiches de frais</a>
@@ -23,17 +23,6 @@
 				<a href="index.php?uc=creerEvenement&action=creerUnEvenement" title="Créer un événement">Créer un un événement</a>
 			</li>
 			<li class="smenu">
-				<a href="index.php?uc=connexion&action=deconnexion" title="Se déconnecter">Déconnexion</a>
-			</li>
-		</ul>
-
-           <li class="smenu">
-              <a href="index.php?uc=gererFrais&action=moisCourant" title="Saisie fiche de frais ">Saisie fiche de frais</a>
-           </li>
-           <li class="smenu">
-              <a href="index.php?uc=etatFrais&action=selectionnerMois" title="Consultation de mes fiches de frais">Mes fiches de frais</a>
-           </li>
-		    <li class="smenu">
               <a href="index.php?uc=creationHotel&action=saisieVille" title="Creation d'un Hotel">Creation d'un Hotel</a>
            </li>
 		   
@@ -44,13 +33,10 @@
 		   <li class="smenu">
               <a href="index.php?uc=visuReservation&action=visuReservation" title="Visualiser les reservation">Visualiser les reservation </a>
            </li>
-		   
-		   
- 	   <li class="smenu">
-              <a href="index.php?uc=connexion&action=deconnexion" title="Se déconnecter">Déconnexion</a>
-           </li>
-         </ul>
+			<li class="smenu">
+				<a href="index.php?uc=connexion&action=deconnexion" title="Se déconnecter">Déconnexion</a>
+			</li>
+		</ul>
 
-        
     </div>
     
