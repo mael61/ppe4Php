@@ -19,9 +19,22 @@ switch($uc){
 	case 'etatFrais' :{
 		include("controleurs/c_etatFrais.php");break; 
 	}
+
 	case 'creerEvenement' :{
 		include("controleurs/c_creerEvenement.php");break; 
 	}
+
+	case 'gererReservation' :{
+		include("controleurs/c_gererReservation.php");break; 
+	}
+	case 'creationHotel' :{
+		include("controleurs/c_creationHotel.php");break; 
+	}
+	case 'visuReservation' :{
+		include("controleurs/c_visuReservation.php");break; 
+	}
+	
+
 }
 include("vues/v_pied.php") ;
 ?>

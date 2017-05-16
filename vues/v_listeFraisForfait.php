@@ -8,7 +8,7 @@
             <legend>Eléments forfaitisés
             </legend>
 			<?php
-				foreach ($lesFraisForfait as $unFrais)
+				foreach ($lesFraisForfait as $unFrais )
 				{
 					$idFrais = $unFrais['idfrais'];
 					$libelle = $unFrais['libelle'];

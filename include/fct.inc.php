@@ -24,6 +24,7 @@ function connecter($id,$nom,$prenom){
 	$_SESSION['idVisiteur']= $id; 
 	$_SESSION['nom']= $nom;
 	$_SESSION['prenom']= $prenom;
+	$_SESSION['mois'] = getMois(date("d/m/Y"));
 }
 /**
  * Détruit la session active
@@ -49,7 +50,8 @@ function dateFrancaisVersAnglais($maDate){
 */
 function dateAnglaisVersFrancais($maDate){
    @list($annee,$mois,$jour)=explode('-',$maDate);
-   $date="$jour"."/".$mois."/".$annee;
+   @list($jourSeul)=explode(' ',$jour);
+   $date="$jourSeul"."/".$mois."/".$annee;
    return $date;
 }
 /**
@@ -224,4 +226,30 @@ function nbErreurs(){
 	   return count($_REQUEST['erreurs']);
 	}
 }
+
+
+
+function valideInfoReservation($hotel,$evenement,$duree){
+	if($hotel==""){
+		ajouterErreur("aucun hotel a ete choisi");
+	}
+	if($evenement == ""){
+		ajouterErreur("aucun evenement a ete choisi");
+	}
+	if($duree == ""){
+		ajouterErreur("aucune durée a ete ajouter ");
+	}
+}
+
+function valideInsertionHotel($libelle,$ville){
+	if($libelle==""){
+			ajouterErreur("aucun nom a ete rentrée");
+	}
+	if($ville==""){
+			ajouterErreur("aucun ville a ete choisis");
+	}
+	
+}
+
+
 ?>

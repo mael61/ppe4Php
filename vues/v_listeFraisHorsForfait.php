@@ -13,9 +13,9 @@
 	    foreach( $lesFraisHorsForfait as $unFraisHorsForfait) 
 		{
 			$libelle = $unFraisHorsForfait['libelle'];
-			$date = $unFraisHorsForfait['date'];
+			$date = $unFraisHorsForfait['laDate'];
 			$montant=$unFraisHorsForfait['montant'];
-			$id = $unFraisHorsForfait['id'];
+			$id = $unFraisHorsForfait['idLigneFraisHorsForfait'];
 	?>		
             <tr>
                 <td> <?php echo $date ?></td>
