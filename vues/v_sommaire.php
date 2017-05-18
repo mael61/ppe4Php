@@ -20,7 +20,7 @@
 				<a href="index.php?uc=etatFrais&action=selectionnerMois" title="Consultation de mes fiches de frais">Mes fiches de frais</a>
 			</li>
 			<li class="smenu">
-				<a href="index.php?uc=creerEvenement&action=creerUnEvenement" title="Créer un événement">Créer un un événement</a>
+				<a href="index.php?uc=creerEvenement&action=creerUnEvenement" title="Créer un événement">Créer un événement</a>
 			</li>
 			<li class="smenu">
               <a href="index.php?uc=creationHotel&action=saisieVille" title="Creation d'un Hotel">Creation d'un Hotel</a>

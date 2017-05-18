@@ -186,7 +186,7 @@ function valideInfoEven($nom, $dateD, $dateF, $ville){
 		ajouterErreur("Le champ date ne doit pas être vide");
 	}
 	else{
-		if(!estDatevalide($dateD)){
+		if(estDatevalide($dateD)){
 			ajouterErreur("Date invalide");
 		}
 	}
@@ -194,7 +194,7 @@ function valideInfoEven($nom, $dateD, $dateF, $ville){
 		ajouterErreur("Le champ date ne doit pas être vide");
 	}
 	else{
-		if(!estDatevalide($dateF)){
+		if(estDatevalide($dateF)){
 			ajouterErreur("Date invalide");
 		}
 	}
