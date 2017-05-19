@@ -335,7 +335,9 @@ class PdoGsb{
 	
 	public function getEvent($idVisiteur){
 		$req ="select nom, dateEv, duree, ville from evenement where idVisiteur ='$idVisiteur'";
-		PdoGsb::$monPdo->exec($req);
+		$res = PdoGsb::$monPdo->query($req);
+		$lesEvenements = $res->fetchAll(PDO::FETCH_ASSOC);
+		return $lesEvenements;
 	}
 
 

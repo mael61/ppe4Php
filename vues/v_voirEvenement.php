@@ -16,12 +16,12 @@
 		if(count($lesEvenements)>0){
 			foreach($lesEvenements as $ligneEvenement){
 		?>
-		<tr>
-			<td><?=$ligneEvenement['nom']?></td>
-			<td><?=$ligneEvenement['dateEv']?></td>
-			<td><?=$ligneEvenement['duree']?></td>
-			<td><?=$ligneEvenement['ville']?></td>
-		</tr>
+			<tr>
+				<td><?php echo $ligneEvenement['nom']?></td>
+				<td><?php echo $ligneEvenement['dateEv']?></td>
+				<td><?php echo $ligneEvenement['duree']?></td>
+				<td><?php echo $ligneEvenement['ville']?></td>
+			</tr>
 		<?php
 			}
 		}

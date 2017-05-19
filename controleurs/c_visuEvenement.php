@@ -4,8 +4,8 @@ $action = $_REQUEST['action'];
 $idVisiteur = $_SESSION['idVisiteur'];
 switch($action){
 	case 'visuUnEvenement':{
-		include("vues/v_voirEvenement.php");
 		$lesEvenements=$pdo->getEvent($idVisiteur);	
+		include("vues/v_voirEvenement.php");
 	break;
 	}
 }
