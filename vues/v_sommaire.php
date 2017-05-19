@@ -31,6 +31,10 @@
 		   <li class="smenu">
               <a href="index.php?uc=visuReservation&action=visuReservation" title="Visualiser les reservation">Visualiser les reservation </a>
            </li>
+		   
+		   <li class="smenu">
+				<a href="index.php?uc=congres&action=verification" title="Afficher les congrès">Afficher les congrès</a>
+			</li>
 			<li class="smenu">
 				<a href="index.php?uc=connexion&action=deconnexion" title="Se déconnecter">Déconnexion</a>
 			</li>

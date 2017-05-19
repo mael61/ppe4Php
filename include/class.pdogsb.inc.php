@@ -519,5 +519,38 @@ class PdoGsb{
 		$req ="INSERT INTO `hotel` (`libelle`, `ville`) VALUES ('$libelle', '$ville')";
 		PdoGsb::$monPdo->exec($req);
 	}
+	
+/**
+ * vpitard
+ 
+ * retourne une liste des évenements des visiteurs d'un délégué
+ * @param  idVisiteur
+ 
+ */	
+	public function tousLesEvenementsDelegue($idVisiteur){
+		$req ="SELECT * FROM `evenement` where idVisiteur in (SELECT idVisiteur from `visiteur` where visiteurLier = '$idVisiteur')";
+		$res = PdoGsb::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes;
+	}
+
+/**
+ * vpitard
+ 
+ * retourne "true" si le visiteur est délégué
+ * @param  idVisiteur
+ 
+ */	
+	public function estDelegue($idVisiteur){
+		$estDelegue = false;
+		$req = "SELECT idRole FROM `visiteur` where idVisiteur ='$idVisiteur'";
+		$res = PdoGsb::$monPdo->query($req);
+		$role = $res->fetchAll();
+		if($role[0]['idRole'] == 2){
+			$estDelegue = true;
+			echo"lo";
+		}
+		return $estDelegue;
+	}
 }	
 ?>

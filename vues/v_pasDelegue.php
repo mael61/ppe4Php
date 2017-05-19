@@ -1,0 +1,1 @@
+<div class ="erreur"> Vous n'êtes pas délégué. Accès interdit.</div>

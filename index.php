@@ -36,6 +36,9 @@ switch($uc){
 	case 'visuReservation' :{
 		include("controleurs/c_visuReservation.php");break; 
 	}
+	case 'congres' :{
+		include("controleurs/c_congres.php");break; 
+	}
 	
 
 }
