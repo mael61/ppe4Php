@@ -2,9 +2,7 @@
     <div id="menuGauche">
      <div id="infosUtil">
     
-        <h2>
-    
-</h2>
+        <h2></h2>
     
       </div>  
         <ul id="menuList">
@@ -20,7 +18,7 @@
 				<a href="index.php?uc=etatFrais&action=selectionnerMois" title="Consultation de mes fiches de frais">Mes fiches de frais</a>
 			</li>
 			<li class="smenu">
-				<a href="index.php?uc=creerEvenement&action=creerUnEvenement" title="Créer un événement">Créer un événement</a>
+				<a href="index.php?uc=visuEvenement&action=visuUnEvenement" title="Visulaiser les événements">Visualiser les événements</a>
 			</li>
 			<li class="smenu">
               <a href="index.php?uc=creationHotel&action=saisieVille" title="Creation d'un Hotel">Creation d'un Hotel</a>

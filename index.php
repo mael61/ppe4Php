@@ -20,6 +20,9 @@ switch($uc){
 		include("controleurs/c_etatFrais.php");break; 
 	}
 
+	case 'visuEvenement' :{
+		include("controleurs/c_visuEvenement.php");break; 
+	}
 	case 'creerEvenement' :{
 		include("controleurs/c_creerEvenement.php");break; 
 	}

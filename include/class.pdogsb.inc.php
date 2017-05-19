@@ -332,6 +332,11 @@ class PdoGsb{
 		$req ="insert into evenement(nom, dateEv, duree, ville, idVisiteur) values ('$libelle','$resume','$date','$idEvent')";
 		PdoGsb::$monPdo->exec($req);
 	}
+	
+	public function getEvent($idVisiteur){
+		$req ="select nom, dateEv, duree, ville from evenement where idVisiteur ='$idVisiteur'";
+		PdoGsb::$monPdo->exec($req);
+	}
 
 
 /**

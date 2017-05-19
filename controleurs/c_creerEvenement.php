@@ -3,7 +3,7 @@ include("vues/v_sommaire.php");
 $action = $_REQUEST['action'];
 $idVisiteur = $_SESSION['idVisiteur'];
 switch($action){
-	case 'creerUnEvenement':{
+	case 'creerEvenement':{
 		include("vues/v_creationEvenement.php");
 		break;
 	}
